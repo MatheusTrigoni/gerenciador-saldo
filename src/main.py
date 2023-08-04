@@ -1,9 +1,8 @@
-from caminho import defina
-from saldo import atualize
+import caminho
+import saldo
 from datetime import date
-from data import converta
 
-diretorio = defina()
+diretorio = caminho.definir()
 linhas = []
 
 try:
@@ -14,8 +13,8 @@ try:
 except FileNotFoundError:
     valor_original = 0.00
 
-exe = atualize(valor_original)
+exe = saldo.atualizar(valor_original)
 
 with open(rf"{diretorio}", 'w') as file:
-    file.write(f"{converta(date.isoformat(date.today()))}\n") # Escreve no arquivo a data de hoje
+    file.write(f"{(date.today().strftime('%d/%m/%Y'))}\n") # Escreve no arquivo a data de hoje
     file.write(f"R$ {'%.2f' % exe}")

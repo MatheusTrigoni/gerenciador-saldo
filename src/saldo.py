@@ -1,7 +1,13 @@
 from os import system
 from time import sleep
 
-def atualize(saldo: float) -> float:
+if __name__ == "__main__":
+    system("cls")
+    print("Não execute este arquivo, execute o arquivo main.py!")
+    sleep(1.5)
+    exit()
+
+def atualizar(saldo: float) -> float:
     system("cls")
     print("Saldo atual: R$", "%.2f" % saldo)
 
@@ -14,7 +20,7 @@ def atualize(saldo: float) -> float:
             system("cls")
             try:
                 valor = float(input("Valor a ser somado ao saldo: "))
-                return atualize(saldo + valor)
+                return atualizar(saldo + valor)
             except ValueError:
                 system("cls")
                 print("Valor inválido!")
@@ -22,7 +28,7 @@ def atualize(saldo: float) -> float:
         system("cls")
         print("Retornando...")
         sleep(1.5)
-        return atualize(saldo)
+        return atualizar(saldo)
     elif escolha == '2':
         system("cls")
         escolha = input("Confirmar escolha: S/N ")
@@ -30,7 +36,7 @@ def atualize(saldo: float) -> float:
             system("cls")
             try:
                 valor = float(input("Valor a ser subtraído do saldo: "))
-                return atualize(saldo - valor)
+                return atualizar(saldo - valor)
             except ValueError:
                 system("cls")
                 print("Valor inválido!")
@@ -38,17 +44,17 @@ def atualize(saldo: float) -> float:
         system("cls")
         print("Retornando...")
         sleep(1.5)
-        return atualize(saldo)
+        return atualizar(saldo)
     elif escolha == '3':
         system("cls")
         escolha = input("Confirmar escolha: S/N ")
         if escolha.capitalize() == 'S':
             system("cls")
-            return atualize(0.00)
+            return atualizar(0.00)
         system("cls")
         print("Retornando...")
         sleep(1.5)
-        return atualize(saldo)
+        return atualizar(saldo)
     elif escolha == '0':
         system("cls")
         print("Volte sempre!")
@@ -58,4 +64,4 @@ def atualize(saldo: float) -> float:
     system("cls")
     print("Opção inválida, retornando...")
     sleep(1.5)
-    return atualize(saldo)
+    return atualizar(saldo)
