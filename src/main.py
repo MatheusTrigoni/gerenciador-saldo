@@ -2,19 +2,22 @@ import caminho
 import saldo
 from datetime import date
 
-diretorio = caminho.definir()
-linhas = []
+while True:
+    diretorio = caminho.definir()
 
-try:
     with open(rf"{diretorio}", 'r') as file:
-        for i in file:
-            linhas.append(i.strip("\n"))
-        valor_original = float(linhas[1].strip("R$ "))
-except FileNotFoundError:
-    valor_original = 0.00
+        linhas = file.readlines()
 
-exe = saldo.atualizar(valor_original)
+        if len(linhas) > 0:
+            valor_original = float(linhas[-2].lstrip("SALDO ATUAL -> R$ "))
+        else:
+            valor_original = 0.00
 
-with open(rf"{diretorio}", 'w') as file:
-    file.write(f"{(date.today().strftime('%d/%m/%Y'))}\n") # Escreve no arquivo a data de hoje
-    file.write(f"R$ {'%.2f' % exe}")
+    exe = saldo.atualizar(valor_original)
+
+    with open(rf"{diretorio}", 'a') as file:
+        file.write(f"{(date.today().strftime('%d/%m/%Y'))}\n") # Escreve no arquivo a data de hoje
+        for alterations in exe[1]:
+            file.write(f"ALTER -> {alterations}\n")
+        file.write(f"SALDO ATUAL -> R$ {'%.2f' % exe[0]}\n")
+        file.write("==============================================\n")

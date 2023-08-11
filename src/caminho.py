@@ -150,52 +150,6 @@ def definir() -> str:
         sleep(1.5)
         system("cls")
         return exit()
-
-    """
-    if escolha == '1' and idioma_id == "en_US":
-        if path.exists(f"C:/Users/{user}/Desktop"):
-            return f"C:/Users/{user}/Desktop/{nome_arquivo}.txt"
-        system("cls")
-        print("O diretório não existe.\nRetornando...")
-        sleep(1.5)
-        return definir()
-    elif escolha == '1' and idioma_id == "pt_BR":
-        if path.exists(f"C:/Users/{user}/Área de Trabalho"):
-            return f"C:/Users/{user}/Área de Trabalho/{nome_arquivo}.txt"
-        system("cls")
-        print("O diretório não existe.\nRetornando...")
-        sleep(1.5)
-        return definir()
-    elif escolha == '2' and idioma_id == "en_US":
-        if path.exists(f"C:/Users/{user}/Documents"):
-            return f"C:/Users/{user}/Documents/{nome_arquivo}.txt"
-        system("cls")
-        print("O diretório não existe.\nRetornando...")
-        sleep(1.5)
-        return definir()
-    elif escolha == '2' and idioma_id == "pt_BR":
-        if path.exists(f"C:/Users/{user}/Documentos"):
-            return f"C:/Users/{user}/Documentos/{nome_arquivo}.txt"
-        system("cls")
-        print("O diretório não existe.\nRetornando...")
-        sleep(1.5)
-        return definir()
-    elif escolha == '3':
-        system("cls")
-        diretorio = input("Digite o diretório completo (não inclua o arquivo): ")
-        if path.exists(diretorio):
-            return f"{diretorio}/{nome_arquivo}.txt"
-        system("cls")
-        print("O diretório não existe.\nRetornando...")
-        sleep(1.5)
-        return definir()
-    elif escolha == '0':
-        system("cls")
-        print("Volte sempre!")
-        sleep(1.5)
-        system("cls")
-        exit()
-    """
     
     print("Opção inválida, tente novamente ou digite 0 para sair.\nRetornando...")
     sleep(1.5)
