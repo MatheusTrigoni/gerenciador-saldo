@@ -17,7 +17,9 @@ while True:
 
     with open(rf"{diretorio}", 'a') as file:
         file.write(f"{(date.today().strftime('%d/%m/%Y'))}\n") # Escreve no arquivo a data de hoje
-        for alterations in exe[1]:
-            file.write(f"ALTER -> {alterations}\n")
+        for alteracoes in exe[1]:
+            file.write(f"ALTER -> {alteracoes[0]}\n")
+            if alteracoes[1] != '':
+                file.write(f"OBS -> {alteracoes[1]}\n")
         file.write(f"SALDO ATUAL -> R$ {'%.2f' % exe[0]}\n")
         file.write("==============================================\n")

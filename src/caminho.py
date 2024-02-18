@@ -95,7 +95,10 @@ def definir() -> str:
                     print("Um caminho com este nome já foi salvo.\n\nRetornando...")
                     sleep(2)
                     return definir()
-
+                
+            novo_arquivo = open(caminho_full, 'x') # Criando o arquivo no determinado diretório
+            novo_arquivo.close()
+            
             with open("paths.txt", 'a') as paths:
                 paths.write(f"{caminho_full}\n\n")
             

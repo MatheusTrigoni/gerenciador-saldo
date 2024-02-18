@@ -20,7 +20,8 @@ def atualizar(saldo: float, alter: list = []):
             system("cls")
             try:
                 valor = float(input("Valor a ser somado ao saldo: "))
-                alter.append(f"Foram somados R$ {'%.2f' % valor} ao saldo")
+                observacao = input("Observação (deixe em branco caso não queira deixar uma observação): ")
+                alter.append((f"Foram somados R$ {'%.2f' % valor} ao saldo", observacao))
                 return atualizar(saldo + valor, alter)
             except ValueError:
                 system("cls")
@@ -37,7 +38,8 @@ def atualizar(saldo: float, alter: list = []):
             system("cls")
             try:
                 valor = float(input("Valor a ser subtraído do saldo: "))
-                alter.append(f"Foram subtraídos R$ {'%.2f' % valor} do saldo")
+                observacao = input(("Observação (deixe em branco caso não queira deixar uma observação): "))
+                alter.append((f"Foram subtraídos R$ {'%.2f' % valor} do saldo", observacao))
                 return atualizar(saldo - valor, alter)
             except ValueError:
                 system("cls")
@@ -52,7 +54,7 @@ def atualizar(saldo: float, alter: list = []):
         escolha = input("Confirmar escolha: S/N ")
         if escolha.capitalize() == 'S':
             system("cls")
-            alter.append("O saldo foi resetado")
+            alter.append(("O saldo foi resetado", ''))
             return atualizar(0.00)
         system("cls")
         print("Retornando...")
